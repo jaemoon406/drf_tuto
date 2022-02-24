@@ -9,9 +9,11 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+import os
 from pathlib import Path
+from dotenv import load_dotenv
 
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,13 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ptumc&4hyhfk(u$f@gukfx0lekni2a9$v&9+2#r6t9vk(8)5r8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
 
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -80,11 +81,11 @@ DATABASES = {
     'default' : {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'drf_tutorial',
-        'USER': 'root',
-        'PASSWORD': 'Dlwoans12!',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-				'OPTIONS': {'charset': 'utf8mb4'}
+        'PASSWORD': os.environ.get('LOCAL_PASSWORD'),
+        'USER': os.environ.get('LOCAL_USER'),
+        'HOST': os.environ.get('LOCAL_HOST'),
+        'PORT': os.environ.get('LOCAL_PORT'),
+        'OPTIONS': {'charset': 'utf8mb4'}
     }
 }
 
@@ -129,3 +130,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+APPEND_SLASH = False
