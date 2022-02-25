@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="Django default" uuid="a6ffec9a-5ae1-48aa-8006-ae340610f02b">
+    <data-source source="LOCAL" name="drf_tuto@localhost" uuid="c8964217-1817-40e3-b22e-27b54d04dddb">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
-      <imported>true</imported>
-      <remarks>$PROJECT_DIR$/conf/settings.py</remarks>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://127.0.0.1:3306/drf_tutorial</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/drf_tuto</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

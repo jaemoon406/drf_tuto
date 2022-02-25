@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-
+SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -38,8 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'snippets',
     'rest_framework',
+    'snippets',
 ]
 
 MIDDLEWARE = [
@@ -77,10 +77,21 @@ WSGI_APPLICATION = 'conf.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 # MySQL
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'drf_tuto',
+#         'USER': 'root',
+#         'PASSWORD': 'Dlwoans12!',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#         'OPTIONS': {'charset': 'utf8mb4'}
+#     }
+# }
 DATABASES = {
-    'default' : {
+    'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'drf_tutorial',
+        'NAME': 'drf_tuto',
         'PASSWORD': os.environ.get('LOCAL_PASSWORD'),
         'USER': os.environ.get('LOCAL_USER'),
         'HOST': os.environ.get('LOCAL_HOST'),
